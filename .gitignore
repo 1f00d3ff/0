@@ -7,4 +7,4 @@
 !*.inputrc
 !*.tmux.conf
 !*.vimrc
-
+!*.Xresources

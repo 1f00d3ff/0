@@ -1,0 +1,7 @@
+URxvt*.transparent: true
+URxvt.shading: 30
+URxvt*scrollBar: false
+URxvt*background: Black
+URxvt*foreground: White
+URxvt.font:xft:ubuntu mono:medium:pixelsize=14
+URxvt.boldFont:xft:ubuntu mono:medium:pixelsize=14
