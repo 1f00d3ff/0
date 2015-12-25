@@ -1,0 +1,10 @@
+# Ignore Everything
+*
+
+# Except these
+!*.bashrc
+!.gitignore
+!*.inputrc
+!*.tmux.conf
+!*.vimrc
+
