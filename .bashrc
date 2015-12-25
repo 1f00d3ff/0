@@ -122,6 +122,9 @@ fi
 set -o vi
 export EDITOR=vim
 
+#synaptic
+synclient TapButton2=2 TapButton3=3
+
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
 alias btc="curl -s https://api.coindesk.com/v1/bpi/historical/close.json | grep -oP '[:]{1}[0-9.]{6,8}[,]{1}' | sed 's/://g' | tr '\n' ' ' | spark"
