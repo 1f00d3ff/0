@@ -1,4 +1,4 @@
--- mkdir ~/.config && sudo cp /etc/xdg/awesome/rc.lua ~/.config/awesome/
+-- mkdir -p ~/.config/awesome && sudo cp /etc/xdg/awesome/rc.lua ~/.config/awesome/
 
 -- Standard awesome library
 require("awful")
