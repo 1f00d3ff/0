@@ -1,12 +1,1 @@
-# Ignore Everything
-*
-
-# Except these
-!*.bashrc
-!.gitignore
-!*.inputrc
-!theme.lua
-!rc.lua
-!*.tmux.conf
-!*.vimrc
-!*.Xresources
+/home/archimedes/0/.gitignore
