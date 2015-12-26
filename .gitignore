@@ -5,6 +5,8 @@
 !*.bashrc
 !.gitignore
 !*.inputrc
+!theme.lua
+!rc.lua
 !*.tmux.conf
 !*.vimrc
 !*.Xresources
