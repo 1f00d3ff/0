@@ -10,4 +10,10 @@ set undolevels=1000
 set ruler
 set path=.,/usr/include,,**
 set tabstop=2 shiftwidth=2 expandtab
-:set nu
+set nu
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+nnoremap j gj
+nnoremap k gk
