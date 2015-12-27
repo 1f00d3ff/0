@@ -1,5 +1,6 @@
 -- sudo cp theme.lua /usr/share/awesome/themes/default/theme.lua
 
+
 ---------------------------
 -- Default awesome theme --
 ---------------------------

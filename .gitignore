@@ -1,1 +1,13 @@
-/home/archimedes/0/.gitignore
+# Ignore Everything
+*
+
+# Except these
+!*.bashrc
+!.gitignore
+!*.inputrc
+!theme.lua
+!rc.lua
+!*.tmux.conf
+!*.vimrc
+!*.Xresources
+!*.me
