@@ -124,7 +124,10 @@ set -o vi
 export EDITOR=vim
 
 #synaptic
-synclient TapButton2=2 TapButton3=3
+if [ $(grep -ic synaptics /proc/bus/input/devices) == 1 ]
+then
+  synclient TapButton2=2 TapButton3=3
+fi
 
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
@@ -149,6 +152,7 @@ alias boot1='sudo cgpt add -i 6 -P 5 -S 1 /dev/sda'
 
 PUSHOVER_USER=$(awk '{print $1}' ~/.creds/pushover)
 PUSHOVER_TOKEN=$(awk '{print $2}' ~/.creds/pushover)
+
 function pushover {
 curl -s -F "token=$PUSHOVER_TOKEN" -F "user=$PUSHOVER_USER" -F "title=$1" -F "message=$2" https://api.pushover.net/1/messages.json; echo ''
 }
@@ -166,7 +170,6 @@ AKA_KEY=$(grep Akamai ~/.totp | awk '{print $2}')
 function totpAkamai {
   oathtool --base32 --totp "$AKA_KEY"
 }
-
 
 dgs() {
 	grep -i "$*" ~/Dropbox/todo/done.txt

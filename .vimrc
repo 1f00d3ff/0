@@ -11,9 +11,9 @@ set ruler
 set path=.,/usr/include,,**
 set tabstop=2 shiftwidth=2 expandtab
 set nu
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
