@@ -153,12 +153,18 @@ alias boot1='sudo cgpt add -i 6 -P 5 -S 1 /dev/sda'
 PUSHOVER_USER=$(awk '{print $1}' ~/.creds/pushover)
 PUSHOVER_TOKEN=$(awk '{print $2}' ~/.creds/pushover)
 
-function pushover {
+function push {
 curl -s -F "token=$PUSHOVER_TOKEN" -F "user=$PUSHOVER_USER" -F "title=$1" -F "message=$2" https://api.pushover.net/1/messages.json; echo ''
 }
 
 TWILIO_ACCOUNT_SID=$(awk '{print $1}' ~/.creds/twilio)
 TWILIO_AUTH_TOKEN=$(awk '{print $2}' ~/.creds/twilio)
+TWILIO_CALLER_ID=$(awk '{print $3}' ~/.creds/twilio)
+
+function sms {
+curl -s -u "$TWILIO_ACCOUNT_SID:$TWILIO_AUTH_TOKEN" -d "From=$TWILIO_CALLER_ID" -d "To=$1" -d "Body=$2" "https://api.twilio.com/2010-04-01/Accounts/$TWILIO_ACCOUNT_SID/SMS/Messages"; echo ''
+}
+
 
 GIT_USER=$(awk '{print $1}' ~/.creds/git)
 GIT_PASS=$(awk '{print $2}' ~/.creds/git)
