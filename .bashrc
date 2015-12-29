@@ -150,32 +150,34 @@ alias one='sudo ssh -D 80 continuumZero'
 alias boot0='sudo cgpt add -i 6 -P 0 -S 1 /dev/sda'
 alias boot1='sudo cgpt add -i 6 -P 5 -S 1 /dev/sda'
 
-PUSHOVER_USER=$(awk '{print $1}' ~/.creds/pushover)
-PUSHOVER_TOKEN=$(awk '{print $2}' ~/.creds/pushover)
 
+export PUSHOVER_USER=$(awk '{print $1}' ~/.creds/pushover)
+export PUSHOVER_TOKEN=$(awk '{print $2}' ~/.creds/pushover)
 function push {
 curl -s -F "token=$PUSHOVER_TOKEN" -F "user=$PUSHOVER_USER" -F "title=$1" -F "message=$2" https://api.pushover.net/1/messages.json; echo ''
 }
 
-TWILIO_ACCOUNT_SID=$(awk '{print $1}' ~/.creds/twilio)
-TWILIO_AUTH_TOKEN=$(awk '{print $2}' ~/.creds/twilio)
-TWILIO_CALLER_ID=$(awk '{print $3}' ~/.creds/twilio)
 
+export TWILIO_ACCOUNT_SID=$(awk '{print $1}' ~/.creds/twilio)
+export TWILIO_AUTH_TOKEN=$(awk '{print $2}' ~/.creds/twilio)
+export TWILIO_CALLER_ID=$(awk '{print $3}' ~/.creds/twilio)
 function sms {
 curl -s -u "$TWILIO_ACCOUNT_SID:$TWILIO_AUTH_TOKEN" -d "From=$TWILIO_CALLER_ID" -d "To=$1" -d "Body=$2" "https://api.twilio.com/2010-04-01/Accounts/$TWILIO_ACCOUNT_SID/SMS/Messages"; echo ''
 }
 
 
-GIT_USER=$(awk '{print $1}' ~/.creds/git)
-GIT_PASS=$(awk '{print $2}' ~/.creds/git)
+export GIT_USER=$(awk '{print $1}' ~/.creds/git)
+export GIT_PASS=$(awk '{print $2}' ~/.creds/git)
 function createRepo {
   curl -u "$GIT_USER:$GIT_PASS" https://api.github.com/user/repos -d '{"name":"'${1}'"}'
 }
 
-AKA_KEY=$(grep Akamai ~/.totp | awk '{print $2}')
+
+export AKA_KEY=$(grep Akamai ~/.totp | awk '{print $2}')
 function totpAkamai {
   oathtool --base32 --totp "$AKA_KEY"
 }
+
 
 dgs() {
 	grep -i "$*" ~/Dropbox/todo/done.txt
