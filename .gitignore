@@ -2,6 +2,7 @@
 *
 
 # Except these
+!README.md
 !*.bashrc
 !.gitignore
 !*.inputrc
