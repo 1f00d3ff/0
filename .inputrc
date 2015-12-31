@@ -1,2 +1,8 @@
+$include /etc/inputrc
 set editing-mode vi
+
+# allow tabcompletion despite case changes
 set completion-ignore-case on
+
+# have READLINE include trailing slash in symlinks
+set mark-symlinked-directories on
