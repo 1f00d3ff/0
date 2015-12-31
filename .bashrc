@@ -179,19 +179,22 @@ function totpAkamai {
 }
 
 
-dgs() {
+function dgs {
 	grep -i "$*" ~/Dropbox/todo/done.txt
 }
 
-n() {
+function n {
 	$EDITOR ~/Dropbox/Apps/plain.txt/"$(date '+%Y-%m-%d')_$(openssl rand -hex 3)_$*".txt
 }
 
-ngs() {
+function ngs {
 	grep -i "$*" ~/Dropbox/Apps/plain.txt/*.txt
 }
 
-nls() {
+function nls {
 	ls -lar ~/Dropbox/Apps/plain.txt/ | grep -i "$*"
 }
 
+function quad {
+  tmux new -s quad \; split-window \; split-window \; split-window \; select-layout tiled
+}
