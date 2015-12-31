@@ -123,7 +123,7 @@ fi
 set -o vi
 export EDITOR=vim
 
-#synaptic
+#synaptic dection and middle click support
 if [ $(grep -ic synaptics /proc/bus/input/devices) == 1 ]
 then
   synclient TapButton2=2 TapButton3=3
@@ -173,8 +173,8 @@ function createRepo {
 }
 
 
-export AKA_KEY=$(grep Akamai ~/.totp | awk '{print $2}')
-function totpAkamai {
+export AKA_KEY=$(awk '{print $1}' ~/.creds/aka)
+function totpAka {
   oathtool --base32 --totp "$AKA_KEY"
 }
 
