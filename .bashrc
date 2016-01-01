@@ -60,12 +60,27 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='550 \t \d : Jobs {\j} $ '
-else
-    PS1='550 \t \d : Jobs {\j} $ '
-fi
-unset color_prompt force_color_prompt
+export PS1=$IBlack$Time12h$Color_Off'$(git branch &>/dev/null;\
+if [ $? -eq 0 ]; then \
+  echo "$(echo $(git status) | grep "nothing to commit" > /dev/null 2>&1; \
+  if [ "$?" -eq "0" ]; then \
+    ## nothing to commit
+    echo "XVM \t \d :'$Green'"$(__git_ps1 " (%s)"); \
+  else \
+    ## Changes to working tree
+    echo "XVM \t \d :'$IRed'"$(__git_ps1 " {%s}"); \
+  fi) '$BYellow$PathShort$Color_Off'\$ "; \
+else \
+  ## Not in git repo
+  echo "'$Yellow$PathShort$Color_Off'XVM \t \d : Jobs {\j} \$ "; \
+fi)'
+
+#if [ "$color_prompt" = yes ]; then
+#    PS1='abc \t \d : Jobs {\j} $ '
+#else
+#    PS1='abc \t \d : Jobs {\j} $ '
+#fi
+#unset color_prompt force_color_prompt
 ###########################
 
 # If this is an xterm set the title to user@host:dir
