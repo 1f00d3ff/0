@@ -158,6 +158,12 @@ curl -s -F "token=$PUSHOVER_TOKEN" -F "user=$PUSHOVER_USER" -F "title=$1" -F "me
 }
 
 
+export MAKER_KEY=$(awk '{print $1}' ~/.creds/maker)
+function ifttt {
+curl https://maker.ifttt.com/trigger/$1/with/key/$MAKER_KEY -H "Content-Type: application/json" -d '{"value1":"'$2'"}'
+}
+
+
 export TWILIO_ACCOUNT_SID=$(awk '{print $1}' ~/.creds/twilio)
 export TWILIO_AUTH_TOKEN=$(awk '{print $2}' ~/.creds/twilio)
 export TWILIO_CALLER_ID=$(awk '{print $3}' ~/.creds/twilio)
