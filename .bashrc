@@ -144,7 +144,7 @@ if [ $? -eq 0 ]; then \
   fi) '$BYellow$PathShort$Color_Off'\$ "; \
 else \
   ## Not in git repo
-  echo "'$Yellow$PathShort$Color_Off'XVM \t \d : Jobs {\j} \$ "; \
+  echo "'$Yellow$PathShort$Color_Off'\t \d {\j}\$ "; \
 fi)'
 
 #if [ "$color_prompt" = yes ]; then
