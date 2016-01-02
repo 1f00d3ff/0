@@ -137,10 +137,10 @@ if [ $? -eq 0 ]; then \
   echo "$(echo $(git status) | grep "nothing to commit" > /dev/null 2>&1; \
   if [ "$?" -eq "0" ]; then \
     ## nothing to commit
-    echo "XVM \t \d :'$Green'"$(__git_ps1 " (%s)"); \
+    echo "\t \d :'$Green'"$(__git_ps1 " (%s)"); \
   else \
     ## Changes to working tree
-    echo "XVM \t \d :'$IRed'"$(__git_ps1 " {%s}"); \
+    echo "\t \d :'$IRed'"$(__git_ps1 " {%s}"); \
   fi) '$BYellow$PathShort$Color_Off'\$ "; \
 else \
   ## Not in git repo
