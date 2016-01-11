@@ -11,9 +11,15 @@ set ruler
 set path=.,/usr/include,,**
 set tabstop=2 shiftwidth=2 expandtab
 set nu
+
+" block arrow keys
 noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
+
 nnoremap j gj
 nnoremap k gk
+
+" disable octal interpretation
+set nrformats=
