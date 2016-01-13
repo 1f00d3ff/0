@@ -209,6 +209,7 @@ fi
 ########################
 set -o vi
 export EDITOR=vim
+CDPATH=:~/nixtoolbox/
 
 #synaptic dection and middle click support
 if [ $(grep -ic synaptics /proc/bus/input/devices) == 1 ]
