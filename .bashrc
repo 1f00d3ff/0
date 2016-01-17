@@ -1,6 +1,9 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+export MACHINE=ARTURO
+export CROWD_USER=blah
+export CROWD_PASS=blahblah
 
 # If not running interactively, don't do anything
 case $- in
@@ -269,8 +272,16 @@ function createRepo {
 
 export AKA_KEY=$(awk '{print $1}' ~/.creds/aka)
 function totpAka {
-  oathtool --base32 --totp "$AKA_KEY"
+  timeVar=30
+  seconds=$(date '+%S')
+  if [[ $seconds -ge 30 ]]; then
+    timeVar=60
+  fi
+  remaining=$(($timeVar-$seconds))
+  echo $(($timeVar-$seconds)) seconds remaining
+  oathtool --base32 --totp "$AKA_KEY" | tee >(xclip)
 }
+
 
 
 function dgs {
