@@ -209,7 +209,7 @@ fi
 ########################
 set -o vi
 export EDITOR=vim
-CDPATH=:~/nixtoolbox/
+CDPATH=:~/nixToolbox/
 
 #synaptic dection and middle click support
 if [ $(grep -ic synaptics /proc/bus/input/devices) == 1 ]
@@ -219,7 +219,7 @@ fi
 
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
-alias btc="curl -s https://api.coindesk.com/v1/bpi/historical/close.json | grep -oP '[:]{1}[0-9.]{6,8}[,]{1}' | sed 's/://g' | tr '\n' ' ' | spark"
+alias btc="curl -s https://api.coindesk.com/v1/bpi/historical/close.json | grep -oP '[:]{1}[0-9.]{6,8}[,]{1}' | sed 's/://g' | tr '\n' ' ' | tee <(spark) | sort -rn"
 alias nn='clear; cd ~/Dropbox/Apps/plain.txt/;ls -lar'
 alias s='/home/archimedes/.speedread/speedread -w'
 
