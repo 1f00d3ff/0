@@ -241,6 +241,8 @@ alias one='sudo ssh -D 80 continuumZero'
 alias boot0='sudo cgpt add -i 6 -P 0 -S 1 /dev/sda'
 alias boot1='sudo cgpt add -i 6 -P 5 -S 1 /dev/sda'
 
+alias make="make -j $(($(cat /proc/cpuinfo | grep processor | wc -l)+1))
+
 
 export PUSHOVER_USER=$(awk '{print $1}' ~/.creds/pushover)
 export PUSHOVER_TOKEN=$(awk '{print $2}' ~/.creds/pushover)
@@ -303,3 +305,6 @@ function nls {
 function quad {
   tmux new -s quad \; split-window \; split-window \; split-window \; select-layout tiled
 }
+
+export CROWD_USER=$(awk '{print $1}' ~/.creds/crowd)
+export CROWD_PASS=$(awk '{print $2}' ~/.creds/crowd)
