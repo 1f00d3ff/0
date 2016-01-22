@@ -9,7 +9,7 @@ set history=10000
 set undolevels=1000
 set ruler
 set path=.,/usr/include,,**
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=2 shiftwidth=2
 set nu
 
 " block arrow keys

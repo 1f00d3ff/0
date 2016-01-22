@@ -241,7 +241,7 @@ alias one='sudo ssh -D 80 continuumZero'
 alias boot0='sudo cgpt add -i 6 -P 0 -S 1 /dev/sda'
 alias boot1='sudo cgpt add -i 6 -P 5 -S 1 /dev/sda'
 
-alias make="make -j $(($(cat /proc/cpuinfo | grep processor | wc -l)+1))
+alias make="make -j $(($(cat /proc/cpuinfo | grep processor | wc -l)+1))"
 
 
 export PUSHOVER_USER=$(awk '{print $1}' ~/.creds/pushover)
