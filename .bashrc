@@ -215,8 +215,7 @@ export EDITOR=vim
 CDPATH=:~/nixToolbox/
 
 #synaptic dection and middle click support
-if [ $(grep -ic synaptics /proc/bus/input/devices) == 1 ]
-then
+if [ $(grep -ic synaptics /proc/bus/input/devices) == 1 ] || [ $(type -p synclient) ]; then
   synclient TapButton2=2 TapButton3=3
 fi
 

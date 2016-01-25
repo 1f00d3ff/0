@@ -10,7 +10,7 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
-awful.util.spawn_with_shell("parcellite &")
+
 -- Load Debian menu entries
 require("debian.menu")
 
