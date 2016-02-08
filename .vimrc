@@ -12,6 +12,7 @@ set path=.,/usr/include,,**
 set tabstop=2 shiftwidth=2
 set nu
 set scrolloff=999
+set backspace=indent,eol,start
 " block arrow keys
 noremap <up> <nop>
 noremap <down> <nop>
