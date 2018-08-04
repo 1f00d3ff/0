@@ -1,7 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-export MACHINE=ARTURO
+export MACHINE=XIAOH
 export CROWD_USER=blah
 export CROWD_PASS=blahblah
 
